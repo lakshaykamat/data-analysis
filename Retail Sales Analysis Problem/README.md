@@ -8,12 +8,6 @@ Your task as a **Data Analyst** is to analyze the provided dataset and deliver r
 
 ---
 
-**Download the dataset**
-
-[Sales_Data.xlsx](https://prod-files-secure.s3.us-west-2.amazonaws.com/dc5a01f7-940b-48c8-9f61-298c6b0ceb8e/8505d919-be88-4ec2-a916-7661853cb5a8/Sales_Data.xlsx)
-
----
-
 ## **Dataset Details**
 
 The dataset includes the following fields:
@@ -144,7 +138,3 @@ The dataset includes the following fields:
 - Create a detailed report summarizing insights and recommendations in a Word document or as a separate sheet in Excel.
 - Include supporting visualizations such as tables, charts, and graphs.
 - Submit all relevant files, including the dataset, Excel workbook, and the report.
-
----
-
-Let me know if you'd like additional details or assistance in any part of the analysis process!
