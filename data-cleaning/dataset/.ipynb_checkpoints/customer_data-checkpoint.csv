@@ -1,8 +1,0 @@
-Customer_ID,Name,Age,Email,Join_Date,Total_Purchases,Country,Phone
-101,John Doe,25.0,john.doe@example.com,2023-01-15,150,USA,1234567890
-102,Jane Smith,,JANE.SMITH@EXAMPLE.COM,2023/02/20,200,usa,(123)-456-7890
-103,,45.0,mike.brown@example.com,2023-03-10,75,Canada,9876543210
-104,Mary Johnson,30.0,mary.johnson@example.com,15-04-2023,400,CANADA,1122334455
-105,John Doe,25.0,john.doe@example.com,2023-01-15,150,USA,1234567890
-106,Emma Wilson,-1.0,emma.wilson@example.com,2023-05-25,300,Germany,+491234567890
-107,Alex Martin,35.0,alex.martin@example.com,2023-06-01,missing,Germany,

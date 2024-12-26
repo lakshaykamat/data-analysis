@@ -1,0 +1,19 @@
+import gdown
+import pandas as pd
+
+# Google Drive file ID
+file_id = "1jkdSMYVYRymvO-lBM-_W5mTj0BAcOWSU"
+file_url = f"https://drive.google.com/uc?id={file_id}"
+file_url_ = "https://docs.google.com/spreadsheets/d/1jkdSMYVYRymvO-lBM-_W5mTj0BAcOWSU/export?format=xlsx"
+
+# Output file name
+output = "file_name.xlsx"
+
+# Download the file
+gdown.download(file_url, output, quiet=False)
+
+# Read the Excel file
+data = pd.read_excel(file_url_)
+
+# Display information about the dataset
+print(data.info())
