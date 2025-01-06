@@ -143,3 +143,149 @@ There are three report formats available in Excel; they are:
 1. Compact Form
 2. Outline Form
 3. Tabular Form
+
+
+### 16. How does the IF() function in Excel work?
+In Excel, the IF() function performs a logical test. It returns a value if the test evaluates to true and another value if the test result is false. It returns the value depending on whether the condition is valid for the entire selected range. 
+
+Let’s look at the below example:
+![alt text](https://www.simplilearn.com/ice9/free_resources_article_thumb/if-function.JPG)
+
+
+As seen above, the IF function returns “Record is Valid” if age is greater than 20, and the salary should be greater than $40000. Else, it will return “Record is Invalid”. Here the final answer will be “Record is Valid” as the entire selected range qualifies both the conditions.
+
+
+### 17. How do we use the SUMIF() function in Excel?
+The SUMIF() function adds the cell values specified by a given condition or criteria. Given below is an example of the sumif function.
+
+![alt text](https://www.simplilearn.com/ice9/free_resources_article_thumb/sumif.JPG)
+
+As seen above, the costs corresponding to the years 2010 are added as per the given criteria. 
+
+
+### 18. What is a Pivot Table?
+A pivot table is like a summary table of the dataset that enables you to create reports and analyze trends. They are useful when you have long rows or columns that hold values you need to track. 
+
+To create a pivot table, first, go to the Insert tab and select the ‘PivotTable’ option.
+
+![alt text](https://www.simplilearn.com/ice9/free_resources_article_thumb/pivot-table.JPG)
+
+
+Select the table or the range and choose where you want to place the pivot table.
+![alt text](https://www.simplilearn.com/ice9/free_resources_article_thumb/pivot.JPG)
+
+
+Drag the fields you wish to show in the pivot table. Here we have created a pivot table using the Coronavirus data.
+![alt text](https://www.simplilearn.com/ice9/free_resources_article_thumb/pivot-field.JPG)
+
+### 19. Create a drop-down list in Excel.
+This can be done by using the ‘Data Validation’ option present in the Data tab.
+
+![alt text](https://www.simplilearn.com/ice9/free_resources_article_thumb/data-validation.JPG)
+
+
+In the example below, we have created a list based on the city column of the dataset.
+![alt text](https://www.simplilearn.com/ice9/free_resources_article_thumb/city-column.JPG)
+
+
+### 20. How do we apply advanced filters in Excel?
+
+To apply advanced filters, use the Advanced Filter option present in the Data tab. Select where you want to filter the table. Choose the ‘list range’ and the ‘criteria range’ that has the conditions based on which you would like to filter the table. 
+
+![alt text](https://www.simplilearn.com/ice9/free_resources_article_thumb/advanced.JPG)
+
+
+### 21. How do you find duplicate values in a column?
+
+To find duplicate values in a column, you can either use Conditional Formatting or the COUNTIF() function.
+
+1. Conditional Formatting
+First, go to the Home tab, then under Conditional Formatting, select ‘Highlight Cells Rules’. Then choose ‘Duplicate Values’.
+
+2. COUNTIF()
+You can write a COUNTIF() function to check if the values in a particular column are repeated.
+
+### 22. How can you remove duplicate values in a range of cells?
+
+1. To delete duplicate values in a column, select the highlighted cells, and press the delete button. After deleting the values, go to the ‘Conditional Formatting’ option present in the Home tab. Choose ‘Clear Rules’ to remove the rules from the sheet.
+
+
+2. You can also delete duplicate values by selecting the ‘Remove Duplicates’ option under Data Tools present in the Data tab.
+
+Moving forward, let’s have a look at the intermediate level of Excel interview questions.
+
+
+## Intermediate
+### 23. What are the wildcards available in Excel?
+
+Wildcards only work with text data. Excel has three wildcards.
+
+1. `* (Asterisk)`
+This refers to any number of characters.
+
+The example stated below filters the customers whose name ends with “a”. 
+
+For that, we use “*a”.
+
+![alt text](images/image.png)
+
+
+2. ? (Question mark)
+It represents one single character.
+
+The example below shows how to filter a particular customer name. 
+
+question
+
+3. ~ (Tilde)
+It is used to identify a wildcard character (~, *, ?) in the text.
+
+In the following example, we are filtering How?* using the tilde (~) symbol. 
+
+
+### 24. Is it possible to create a Pivot Table using multiple sources of data?
+Yes, you can create a pivot table from multiple worksheets. For this, there must be a common row in both the tables. This will act as the Primary key for the first table and Foreign key for the second table. Create a relationship between the tables and then build the pivot table.
+
+
+### 25. How does a Slicer work in Excel?
+To filter data in a Pivot table, we can use slicers. 
+
+1. To create a slicer, go to the Insert tab, and select Slicer present under Filter. 
+2. Then, select the list of fields for which you want to create slicers.
+
+In the below example, we have created two slicers (months, countries, and territory) to filter the pivot table. 
+
+### 26. What are macros in Excel? Create a macro to automate a task.
+Macro is a program that resides within the Excel file. The use of it is to automate repetitive tasks that you would like to perform in Excel.
+
+To record a macro, you can either go to the Developer tab and click on Record Macro or access it from the View tab.
+
+![alt text](https://www.simplilearn.com/ice9/free_resources_article_thumb/macro.JPG)
+
+
+## Advanced Level Excel Interview Questions
+
+
+### 27. What is the What-If Analysis in Excel?
+The What-If Analysis in Excel is a powerful tool to perform complex mathematical calculations, experiment with data, and try out different scenarios. 
+
+Consider the following example:
+
+If you get $10,000 worth of sales over the next few months, how much profit can you expect?”
+
+![41-data](https://www.simplilearn.com/ice9/free_resources_article_thumb/41-data.JPG)
+
+Such scenarios can be solved using the What-If Analysis.
+
+Go to the Data tab and click on What-If Analysis present under Forecast.
+
+Scenario Manager is used for a comparison of different scenarios.
+
+The Goal Seek performs reverse calculations.
+
+The Data Table is used for sensitivity analysis.
+
+
+### 28. What is the difference between a function and a subroutine in VBA?
+
+### 29. What is the difference between ThisWorkbook and ActiveWorkbook in VBA?
