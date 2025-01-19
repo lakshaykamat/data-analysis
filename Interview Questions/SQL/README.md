@@ -318,3 +318,320 @@ NULL values represent missing or unknown data. To handle NULL values:
 - Use functions like `COALESCE` or `IFNULL` to replace NULL with a default value.
 - Be cautious with arithmetic operations, as they can result in NULL if any operand is NULL.
 
+## 41. What is the purpose of the `GROUP BY` clause in SQL?
+
+The `GROUP BY` clause in SQL is used to arrange identical data into groups. This is often used with aggregate functions like `COUNT`, `SUM`, `AVG`, `MAX`, or `MIN` to perform operations on each group of data.
+
+**Example:**
+
+```sql
+SELECT department_id, COUNT(*) AS employee_count
+FROM employees
+GROUP BY department_id;
+```
+
+This query groups employees by their department and counts the number of employees in each department.
+
+## 42. How do you find the second highest salary from a table?
+
+To find the second highest salary, you can use a subquery that selects the maximum salary less than the highest salary.
+
+**Example:**
+
+```sql
+SELECT MAX(salary) AS second_highest_salary
+FROM employees
+WHERE salary < (SELECT MAX(salary) FROM employees);
+```
+
+This query first finds the highest salary and then selects the maximum salary that is less than this value, effectively giving the second highest salary.
+
+## 43. What is the difference between `INNER JOIN` and `OUTER JOIN`?
+
+- **`INNER JOIN`**: Returns records that have matching values in both tables.
+
+- **`OUTER JOIN`**: Returns all records when there is a match in one of the tables. It can be further classified into:
+
+  - **`LEFT OUTER JOIN`**: Returns all records from the left table and the matched records from the right table.
+
+  - **`RIGHT OUTER JOIN`**: Returns all records from the right table and the matched records from the left table.
+
+  - **`FULL OUTER JOIN`**: Returns all records when there is a match in either left or right table.
+
+**Example:**
+
+```sql
+-- INNER JOIN
+SELECT employees.first_name, departments.department_name
+FROM employees
+INNER JOIN departments ON employees.department_id = departments.department_id;
+
+-- LEFT OUTER JOIN
+SELECT employees.first_name, departments.department_name
+FROM employees
+LEFT OUTER JOIN departments ON employees.department_id = departments.department_id;
+```
+
+The first query returns employees with their corresponding department names where a match exists, while the second query returns all employees and their department names, including those without a matching department.
+
+## 44. What is the purpose of the `DISTINCT` keyword in SQL?
+
+The `DISTINCT` keyword is used to return only distinct (different) values in the result set. It eliminates duplicate records from the result set.
+
+**Example:**
+
+```sql
+SELECT DISTINCT department_id
+FROM employees;
+```
+
+This query returns a list of unique department IDs from the employees table.
+
+## 45. How do you update data in a table?
+
+To update data in a table, you use the `UPDATE` statement along with the `SET` clause to specify the columns to be updated and the `WHERE` clause to specify which records should be updated.
+
+**Example:**
+
+```sql
+UPDATE employees
+SET salary = 50000
+WHERE employee_id = 101;
+```
+
+This query updates the salary of the employee with `employee_id` 101 to 50,000.
+
+## 46. What is a `CASE` statement in SQL?
+
+The `CASE` statement in SQL is used to create conditional logic within a query. It allows you to perform IF-THEN-ELSE operations in SQL.
+
+**Example:**
+
+```sql
+SELECT first_name, last_name,
+       CASE
+           WHEN salary > 70000 THEN 'High'
+           WHEN salary BETWEEN 50000 AND 70000 THEN 'Medium'
+           ELSE 'Low'
+       END AS salary_grade
+FROM employees;
+```
+
+This query assigns a salary grade based on the salary of each employee.
+
+## 47. How do you delete data from a table?
+
+To delete data from a table, you use the `DELETE` statement along with the `WHERE` clause to specify which records should be deleted.
+
+**Example:**
+
+```sql
+DELETE FROM employees
+WHERE employee_id = 101;
+```
+
+This query deletes the record of the employee with `employee_id` 101.
+
+## 48. What is the purpose of the `LIMIT` clause in SQL?
+
+The `LIMIT` clause is used to specify the number of records to return in the result set. It is commonly used to retrieve a subset of records.
+
+**Example:**
+
+```sql
+SELECT * FROM employees
+LIMIT 10;
+```
+
+This query returns the first 10 records from the employees table.
+
+## 49. What is a `JOIN` in SQL?
+
+A `JOIN` in SQL is used to combine rows from two or more tables based on a related column between them.
+
+**Example:**
+
+```sql
+SELECT employees.first_name, employees.last_name, departments.department_name
+FROM employees
+JOIN departments ON employees.department_id = departments.department_id;
+```
+
+This query retrieves the first name, last name, and department name for each employee by joining the employees and departments tables on the `department_id` column.
+
+## 50. How do you find the total number of records in a table?
+
+To find the total number of records in a table, you can use the `COUNT` function.
+
+**Example:**
+
+```sql
+SELECT COUNT(*) AS total_records
+FROM employees;
+```
+
+This query returns the total number of records in the employees table.
+
+## 51. What is the difference between `WHERE` and `HAVING` clauses?
+
+- **`WHERE`**: Filters records before any groupings are made. It operates on individual rows.
+
+- **`HAVING`**: Filters records after the `GROUP BY` clause has been applied. It operates on aggregated data.
+
+**Example:**
+
+```sql
+-- Using WHERE
+SELECT department_id, COUNT(*) AS employee_count
+FROM employees
+WHERE salary > 50000
+GROUP BY department_id;
+
+-- Using HAVING
+SELECT department_id, COUNT(*) AS employee_count
+FROM employees
+GROUP BY department_id
+HAVING COUNT(*) > 10;
+```
+
+The first query filters employees with a salary greater than 50,000 before grouping, while the second filters departments having more than 10 employees after grouping.
+
+## 52. How do you find the total number of records in a table?
+
+To find the total number of records in a table, you can use the `COUNT` function.
+
+**Example:**
+
+```sql
+SELECT COUNT(*) AS total_records
+FROM employees;
+```
+
+This query returns the total number of records in the employees table.
+
+## 53. What is a subquery, and how is it used?
+
+A **subquery** is a query nested inside another query. It can be used in various parts of an SQL statement, such as the `SELECT`, `FROM`, `WHERE`, or `HAVING` clauses. Subqueries are useful for breaking down complex queries into simpler components.
+
+**Example:**
+
+```sql
+SELECT employee_id, first_name, last_name
+FROM employees
+WHERE department_id = (SELECT department_id
+                       FROM departments
+                       WHERE department_name = 'Sales');
+```
+
+This query retrieves employees who work in the 'Sales' department by using a subquery to find the department ID.
+
+## 54. What is a self-join, and when would you use it?
+
+A **self-join** is a join in which a table is joined with itself. It is useful when you need to compare rows within the same table.
+
+**Example:**
+
+```sql
+SELECT e1.employee_id AS Employee, e2.employee_id AS Manager
+FROM employees e1
+JOIN employees e2 ON e1.manager_id = e2.employee_id;
+```
+
+This query finds employees and their corresponding managers by joining the employees table with itself.
+
+## 55. Explain the difference between `CHAR` and `VARCHAR` data types.
+
+- **`CHAR(n)`**: A fixed-length character data type. It always reserves space for `n` characters, padding with spaces if the input is shorter.
+
+- **`VARCHAR(n)`**: A variable-length character data type. It stores only the characters you assign, plus a byte or two to record the length of the string, saving storage space.
+
+**Example:**
+
+```sql
+CREATE TABLE employees (
+    employee_id INT,
+    first_name CHAR(50),
+    last_name VARCHAR(100)
+);
+```
+
+In this table, `first_name` is a fixed-length field, while `last_name` is a variable-length field.
+
+## 56. How can you remove duplicate rows from a result set?
+
+To remove duplicate rows from a result set, you can use the `DISTINCT` keyword.
+
+**Example:**
+
+```sql
+SELECT DISTINCT department_id
+FROM employees;
+```
+
+This query returns a list of unique department IDs from the employees table.
+
+## 57. What is a stored procedure, and what are its benefits?
+
+A **stored procedure** is a set of SQL statements that can be stored in the database and executed repeatedly. Benefits include:
+
+- **Modularity**: Encapsulates complex operations for reuse.
+
+- **Performance**: Reduces client-server communication and can be optimized by the database server.
+
+- **Security**: Restricts direct access to data and can encapsulate business logic.
+
+**Example:**
+
+```sql
+CREATE PROCEDURE GetEmployeeDetails (IN emp_id INT)
+BEGIN
+    SELECT * FROM employees WHERE employee_id = emp_id;
+END;
+```
+
+This stored procedure retrieves employee details based on the provided employee ID.
+
+## 58. How do you handle NULL values in SQL?
+
+NULL values represent missing or unknown data. To handle NULL values:
+
+- Use the `IS NULL` or `IS NOT NULL` operators in `WHERE` clauses.
+
+- Use the `COALESCE` function to replace NULL with a default value.
+
+**Example:**
+
+```sql
+SELECT first_name, last_name, COALESCE(phone_number, 'N/A') AS phone_number
+FROM employees;
+```
+
+This query replaces any NULL `phone_number` values with 'N/A'.
+
+## 59. What is the purpose of the `GROUP BY` clause in SQL?
+
+The `GROUP BY` clause in SQL is used to arrange identical data into groups. This is often used with aggregate functions like `COUNT`, `SUM`, `AVG`, `MAX`, or `MIN` to perform operations on each group of data.
+
+**Example:**
+
+```sql
+SELECT department_id, COUNT(*) AS employee_count
+FROM employees
+GROUP BY department_id;
+```
+
+This query groups employees by their department and counts the number of employees in each department.
+
+## 60. How do you find the second highest salary from a table?
+
+To find the second highest salary, you can use a subquery that selects the maximum salary less than the highest salary.
+
+**Example:**
+
+```sql
+SELECT MAX(salary) AS second_highest_salary
+FROM employees
+WHERE salary < (SELECT MAX(salary) FROM employees);
+```
+
+This query first finds the highest salary and then selects the maximum salary that is less than 
